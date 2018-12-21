@@ -1,25 +1,46 @@
+<div class="container yellow-text darken-2">
 
-<div class="container">
     <div class="row center-align">
         <div class="col s12">
+            <img src="/assets/img/logo.svg" alt="BurgerTime" width="20%" style="margin-top:40px;">
+        </div>
+    </div>
+
+    <div class="row center-align">
+        <div class="col s4 offset-s2">
             <h1>It's Burger time!</h1>
             <ul>
                 {{#each burgers}}
-
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/unless}}
                 {{/each}}
             </ul>
-<div class="col s4 offset-s4">
+        </div>
+
+        <div class="col s4">
+            <h1>Burgers you ate!</h1>
+
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+        
+        <div class="col s4 offset-s4">
             <h3>Add a burger</h3>
             <form class="create-form">
 
                 <div class="form-group">
-                    <label for="ca">Burger Name:</label>
-                    <input type="text" id="ca" name="name">
+                    <label for="ca" class="yellow-text darken-2">Burger Name:</label>
+                    <input type="text" id="bur" name="name" class="yellow-text darken-2">
                 </div>
 
-                <button type="submit">Add Burgers</button>
+                <button type="submit" class="btn-floating btn-large waves-effect waves-light red darken-1 yellow-text darken-2">Add Burgers</button>
             </form>
-            </div>
         </div>
     </div>
 </div>
